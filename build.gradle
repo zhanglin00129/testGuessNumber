@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+task "create-dirs" << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile(
+            'junit:junit:4.10', 'org.hamcrest:hamcrest-all:1.1', 'org.mockito:mockito-all:1.9.5'
+    )
+}
+
